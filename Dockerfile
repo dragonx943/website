@@ -7,7 +7,8 @@ RUN apt-get update && \
     apt-get install -y systemd && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN echo 'dra:dra' | chpasswd
+RUN echo 'root:root' | chpasswd
+
 # Expose
 EXPOSE 4200
 
