@@ -1,5 +1,5 @@
 # Use a base image
-FROM alpine:edge
+FROM dragonx943/docker
 
 # Install
 RUN apk update && \
