@@ -1,5 +1,5 @@
 # Use a base image
-FROM alpine
+FROM alpine:edge
 
 # Install
 RUN apk update && \
