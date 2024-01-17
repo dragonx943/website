@@ -1,5 +1,5 @@
 # Use a base image
-FROM alpine:19
+FROM alpine
 
 # Install
 RUN apk update && \
