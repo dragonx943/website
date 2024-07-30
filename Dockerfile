@@ -9,6 +9,9 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
     apk add --update shadow util-linux pciutils coreutils binutils findutils grep bash bash-completion openssl curl openssh-client sudo shellinabox
     
 RUN echo 'root:root' | chpasswd && passwd -u root
+RUN adduser -D dra \
+    && echo 'dra:0' | chpasswd && passwd -u dra
+RUN echo 'dra     ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
 # Expose
 EXPOSE 4200
