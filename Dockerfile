@@ -1,9 +1,11 @@
 # Use a base image
-FROM dragonx943/alpine:bot-base
+FROM dragonx943/alpine:base
 
 # Install
 RUN echo 'root:root' | chpasswd && passwd -u root
-RUN echo 'dra:0' | chpasswd && passwd -u dra
+RUN adduser -D dra \
+    && echo 'dra:0' | chpasswd && passwd -u dra
+RUN adduser -h /home/dra -s /bin/ash dra
 RUN echo 'dra     ALL=(ALL:ALL) ALL' >> /etc/sudoers
 RUN echo "dra ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
