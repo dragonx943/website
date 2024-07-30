@@ -1,5 +1,5 @@
 # Use a base image
-FROM dragonx943/alpine:base
+FROM dragonx943/alpine:bot-base
 
 # Install
 RUN echo 'root:root' | chpasswd && passwd -u root
