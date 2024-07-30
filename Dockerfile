@@ -1,12 +1,13 @@
 # Use a base image
-FROM ubuntu:22.04
+FROM alpine:latest
 
 # Install
-RUN apt-get update && \
-    apt-get install -y shellinabox && \
-    apt-get install -y systemd && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
+    chmod 755 /etc && \
+    apk update && \
+    apk upgrade && \
+    apk add --update shadow util-linux pciutils coreutils binutils findutils grep bash bash-completion openssl curl openssh-client sudo shellinabox && rm -rf /var/cache/apk/*
+    
 RUN echo 'root:root' | chpasswd
 
 # Expose
