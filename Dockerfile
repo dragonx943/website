@@ -1,5 +1,5 @@
 # Use a base image
-FROM dragonx943/alpine:deploy
+FROM dragonx943/alpine:full-deploy
 
 # Install
 RUN echo 'root:root' | chpasswd && passwd -u root
