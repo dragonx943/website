@@ -2,7 +2,7 @@
 FROM dragonx943/alpine:full-deploy
 
 # Install
-RUN echo 'root:root' | chpasswd && passwd -u root
+RUN echo 'root:root' | chpasswd && passwd -d root
 RUN adduser -h /home/bot -D bot && echo 'bot:0' | chpasswd && passwd -u bot
 RUN echo 'bot     ALL=(ALL:ALL) ALL' >> /etc/sudoers
 RUN echo "bot ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
